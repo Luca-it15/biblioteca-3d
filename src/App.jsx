@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import LibraryScene from './component/LibraryScene';
+import Modal from './component/modal';
 
 function App() {
   const [selectedInfo, setSelectedInfo] = useState(null);
@@ -13,7 +14,7 @@ function App() {
         <pointLight position={[10, 10, 10]} />
         
         <LibraryScene setSelectedInfo={setSelectedInfo} />
-        <OrbitControls />
+        <OrbitControls  target={[0, 2, 0]}/>
       </Canvas>
       {selectedInfo && <Modal info={selectedInfo} onClose={() => setSelectedInfo(null)} />}
     </div>
