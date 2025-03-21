@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import LibraryScene from './component/LibraryScene';
-import Modal from './component/modal';
+import Modal from './component/Modal';
 
 function App() {
   const [selectedInfo, setSelectedInfo] = useState(null);
