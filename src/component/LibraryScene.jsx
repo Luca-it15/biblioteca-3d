@@ -9,7 +9,6 @@ const LibraryScene = ({ setSelectedInfo }) => {
   return (
     <>
       <primitive object={scene} />
-
       <ClickableCard 
         position={[2, 1, -5]} 
         title="Libro A"
