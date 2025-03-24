@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import LibraryScene from './component/LibraryScene';
-import Modal from './component/Modal';
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import LibraryPage from './pages/LibraryPage';
+import CatalogPage from './pages/CatalogPage';
+import { Loader } from '@react-three/drei';
 
 function App() {
-  const [selectedInfo, setSelectedInfo] = useState(null);
-
   return (
-    <div style={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}>
-      <Canvas style={{ width: '100%', height: '100%' }} camera={{ position: [0, 2, 10], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
-        
-        <LibraryScene setSelectedInfo={setSelectedInfo} />
-        <OrbitControls  target={[0, 2, 0]}/>
-      </Canvas>
-      {selectedInfo && <Modal info={selectedInfo} onClose={() => setSelectedInfo(null)} />}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/library" element={<LibraryPage />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+      </Routes>
+      <Loader />
+    </Router>
   );
 }
 
