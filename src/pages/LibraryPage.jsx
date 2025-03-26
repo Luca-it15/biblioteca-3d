@@ -26,7 +26,13 @@ function LibraryPage() {
         <Suspense fallback={null}>
           <LibraryScene setSelectedInfo={setSelectedInfo} />
         </Suspense>
-        <OrbitControls target={[0, 2, 0]}/>
+        <OrbitControls 
+        target={[0, 2, 0]}
+        enablePan={false}          
+        minDistance={2}            
+        maxDistance={8}           
+        minPolarAngle={Math.PI / 4}
+        maxPolarAngle={Math.PI / 2}  />
       </Canvas>
       
       <LoadingBar />
