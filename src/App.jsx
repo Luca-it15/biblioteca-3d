@@ -1,22 +1,21 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
+import HomePage from './pages/HomePage';
 import LibraryPage from './pages/LibraryPage';
 import CatalogPage from './pages/CatalogPage';
-import { Loader } from '@react-three/drei';
+import AboutPage from './pages/AboutPage';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
-      <Loader />
     </Router>
   );
-}
+};
 
 export default App;
