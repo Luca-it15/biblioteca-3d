@@ -14,21 +14,29 @@ function LibraryPage() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
-      <Canvas style={{ width: '100%', height: '100%' }} camera={{ position: [0, 10, 10], fov: 50 }}>
+    <div style={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}>
+      <Canvas 
+          style={{ width: '100%', height: '100%' }} 
+          camera={{ position: [0, 10, 10], fov: 50 }}
+          dpr={[1, 2]}
+          gl={{ antialias: true }}
+       >
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
         <Suspense fallback={null}>
-          {/* Passa la funzione setSelectedInfo a LibraryScene */}
           <LibraryScene setSelectedInfo={setSelectedInfo} />
         </Suspense>
-        <OrbitControls target={[0, 2, 0]}/>
+        <OrbitControls 
+        target={[0, 2, 0]}
+        enablePan={false}          
+        minDistance={2}            
+        maxDistance={8}           
+        minPolarAngle={Math.PI / 4}
+        maxPolarAngle={Math.PI / 2}  />
       </Canvas>
       
-      {/* La LoadingBar viene sempre visualizzata in basso */}
       <LoadingBar />
 
-      {/* Pulsante per tornare al menu principale */}
       <Button
         variant="contained"
         color="primary"
@@ -38,7 +46,6 @@ function LibraryPage() {
         Come Back
       </Button>
       
-      {/* Renderizza la modale se selectedInfo è valorizzato */}
       {selectedInfo && (
         <Modal 
           info={selectedInfo} 

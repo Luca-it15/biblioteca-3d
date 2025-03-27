@@ -1,13 +1,14 @@
 // src/CatalogPage.jsx
 import React from 'react';
 import { Container, Typography } from '@mui/material';
+import Layout from '../layout/Layout';
 
 function CatalogPage() {
   return (
-    <Container style={{ marginTop: '20vh' }}>
+      <Layout>
       <Typography variant="h4">Catalogo</Typography>
       {/* Inserisci qui i dettagli del catalogo */}
-    </Container>
+      </Layout>
   );
 }
 
